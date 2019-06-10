@@ -1,13 +1,13 @@
-package com.melt.tofun;
+package com.forfun.flight;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TofunApplication {
+public class FlightApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TofunApplication.class, args);
+		SpringApplication.run(FlightApplication.class, args);
 	}
 
 }
