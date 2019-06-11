@@ -6,6 +6,7 @@
     <modules>
         <module>flight-shedule</module>
 		<module>currency-conversion</module>
+		<module>flight-fare</module>
 	</modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
