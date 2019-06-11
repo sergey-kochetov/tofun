@@ -17,7 +17,7 @@ public class BootstrapRepository implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         CurrencyConverter converter1 = new CurrencyConverter(1L, "USD", "RUB", BigDecimal.valueOf(65.04));
-        CurrencyConverter converter2 = new CurrencyConverter(2L, "UAH", "RUB", BigDecimal.valueOf(25.14));
+        CurrencyConverter converter2 = new CurrencyConverter(2L, "USD", "UAH", BigDecimal.valueOf(25.14));
 
         repository.save(converter1);
         repository.save(converter2);
