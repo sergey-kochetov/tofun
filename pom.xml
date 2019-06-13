@@ -8,6 +8,7 @@
 		<module>currency-conversion</module>
 		<module>flight-fare</module>
         <module>configuration-server</module>
+        <module>flight-site</module>
     </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
