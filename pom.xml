@@ -7,7 +7,8 @@
         <module>flight-shedule</module>
 		<module>currency-conversion</module>
 		<module>flight-fare</module>
-	</modules>
+        <module>configuration-server</module>
+    </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
