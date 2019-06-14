@@ -9,6 +9,7 @@
 		<module>flight-fare</module>
         <module>configuration-server</module>
         <module>flight-site</module>
+        <module>park</module>
     </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
