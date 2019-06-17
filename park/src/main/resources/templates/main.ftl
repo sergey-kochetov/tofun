@@ -20,10 +20,10 @@
 <body>
 <nav>
     <div class="nav-wrapper green darken-3">
-        <a href="/issue" class="brand-logo" style="margin-left: 20px">CozyPark</a>
+        <a href="/issue" class="brand-logo" style="margin-left: 20px">Park</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <#--<#if user??>-->
-            <#--<li hidden><a href="/issue">Мой профиль</a></li>-->
+            <#--<li hidden><a href="/issue">My profile</a></li>-->
             <#--<#else>-->
             <li><a href="/reg">Sign up</a></li>
             <li><a href="/login">Sign in</a></li>
