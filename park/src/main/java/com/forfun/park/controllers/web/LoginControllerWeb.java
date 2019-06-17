@@ -24,7 +24,7 @@ public class LoginControllerWeb {
         return "reg";
     }
 
-    @PostMapping
+    @PostMapping("/reg")
     public String regPost(SignUpRequest signUpRequest) {
         if (service.existsByUsername(signUpRequest.getUsername())) {
             return "reg";
