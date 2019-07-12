@@ -1,11 +1,15 @@
 package com.forfun.springdata.entity;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.StringJoiner;
 
 @Entity
 @Table(name = "person")
+@Data
 public class Person {
 
     @Id
@@ -16,6 +20,14 @@ public class Person {
     @Column(name = "last_name")
     private String lastName;
     private String address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passport_id")
+    private Passport passport;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id")
+    private List<Phone> phones;
 
     public Person() {
     }
@@ -33,38 +45,6 @@ public class Person {
         this.address = address;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     @Override
     public String toString() {
         return new StringJoiner(", ", Person.class.getSimpleName() + "[", "]")
@@ -72,6 +52,7 @@ public class Person {
                 .add("firstName='" + firstName + "'")
                 .add("lastName='" + lastName + "'")
                 .add("address='" + address + "'")
+                .add("passport=" + passport)
                 .toString();
     }
 }

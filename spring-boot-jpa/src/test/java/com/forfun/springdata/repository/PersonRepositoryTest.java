@@ -1,5 +1,6 @@
 package com.forfun.springdata.repository;
 
+import com.forfun.springdata.entity.Passport;
 import com.forfun.springdata.entity.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,10 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class PersonRepositoryTest {
     @Autowired
-    PersonRepository personRepository;
+    private PersonRepository personRepository;
+
+    @Autowired
+    private PassportRepository passportRepository;
 
     @Test
     public void findByFirstName() {
@@ -35,5 +39,21 @@ public class PersonRepositoryTest {
         assertEquals("Alex", people.get(0).getFirstName());
         assertEquals("Anna", people.get(1).getFirstName());
         assertEquals("Olesya", people.get(2).getFirstName());
+    }
+
+    @Test
+    public void deletePassport() {
+        Passport passport = passportRepository.findByNumber("SK-123123");
+
+        passport.getPerson().setPassport(null);
+
+        passportRepository.delete(passport);
+
+        List<Person> people = personRepository.findAll();
+        List<Passport> passports = passportRepository.findAll();
+
+        assertEquals(3, people.size());
+        assertEquals(2, passports.size());
+
     }
 }
