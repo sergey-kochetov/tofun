@@ -19,30 +19,39 @@ public class Person {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    private String address;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "passport_id")
     private Passport passport;
 
+    //Uni-directional
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id")
     private List<Phone> phones;
 
+    //Bi-directional
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Address> addresses;
+
     public Person() {
     }
 
-    public Person(String firstName, String lastName, String address) {
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
     }
 
     public Person(Long id, String firstName, String lastName, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        if (addresses != null) {
+            addresses.forEach(a -> a.setPerson(this));
+        }
+        this.addresses = addresses;
     }
 
     @Override
@@ -51,7 +60,6 @@ public class Person {
                 .add("id=" + id)
                 .add("firstName='" + firstName + "'")
                 .add("lastName='" + lastName + "'")
-                .add("address='" + address + "'")
                 .add("passport=" + passport)
                 .toString();
     }

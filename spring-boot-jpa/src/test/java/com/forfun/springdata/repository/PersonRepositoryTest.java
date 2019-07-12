@@ -27,7 +27,6 @@ public class PersonRepositoryTest {
 
         assertEquals("Anna", anna.get(0).getFirstName());
         assertEquals("Andreeva", anna.get(0).getLastName());
-        assertEquals("Samara", anna.get(0).getAddress());
     }
 
 

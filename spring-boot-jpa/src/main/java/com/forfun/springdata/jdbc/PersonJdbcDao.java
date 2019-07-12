@@ -23,11 +23,11 @@ public class PersonJdbcDao {
 
     public int insert(Person person) {
         return jdbcTemplate.update("insert into jpa.person " +
-                        "(id, first_name, last_name, address) " +
+                        "(id, first_name, last_name) " +
                         "values (?,?,?,?)",
                 new Object[]{
                         person.getId(), person.getFirstName(),
-                        person.getLastName(), person.getAddress()
+                        person.getLastName()
                 });
     }
 }
