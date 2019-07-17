@@ -1,0 +1,7 @@
+package com.forfun.repositories;
+
+import com.forfun.model.Author;
+import org.springframework.data.repository.CrudRepository;
+
+public interface AuthorRepository extends CrudRepository<Author, Long> {
+}
